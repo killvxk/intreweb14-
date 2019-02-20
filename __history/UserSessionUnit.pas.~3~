@@ -1,0 +1,64 @@
+unit UserSessionUnit;
+
+{
+  This is a DataModule where you can add components or declare fields that are specific to 
+  ONE user. Instead of creating global variables, it is better to use this datamodule. You can then
+  access the it using UserSession.
+}
+interface
+
+uses
+  IWUserSessionBase, SysUtils, Classes, Data.DB, DBAccess, Uni, UniProvider,
+  MySQLUniProvider, MemDS;
+
+type
+  TIWUserSession = class(TIWUserSessionBase)
+    con1: TUniConnection;
+    unqry1: TUniQuery;
+    mysqlnprvdr1: TMySQLUniProvider;
+    ds1: TUniDataSource;
+    procedure IWUserSessionBaseCreate(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+implementation
+
+{$R *.dfm}
+function login(): Integer;
+begin
+with  TUniQuery.Create(self) do  try
+  Connection:=usersession.con1
+  Close;
+  sql.Clear;
+  SQL.Add('select * from xs_user where uname = ');
+  sql.Add(''''+iwdt1.Text+''' and upass = ');
+  sql.Add(''''+iwdt2.Text+'''');
+  //WebApplication.ShowMessage(sql.Text);
+  Open;
+  if RecordCount>0  then
+  begin
+  UserSession.uname:=iwdt1.Text;                      //用户名
+  UserSession.ulevel:=FieldByName('ulevel').asstring;  //权限等级
+  tiwformmain.Create(WebApplication).show;
+
+  end
+  else
+  begin
+    WebApplication.ShowMessage('无此用户');
+    exit;
+  end;
+finally
+
+end;
+
+end;
+procedure TIWUserSession.IWUserSessionBaseCreate(Sender: TObject);
+begin
+if con1.Connected=False  then con1.Connect;
+
+end;
+
+end.

@@ -1,0 +1,149 @@
+unit U_login;
+
+interface
+
+uses
+  Classes, SysUtils, IWAppForm, IWApplication, IWColor, IWTypes,
+  IWVCLBaseControl, IWBaseControl, IWBaseHTMLControl, IWControl, IWCompButton,
+  Vcl.Controls, Vcl.Forms, IWVCLBaseContainer, IWContainer, IWHTMLContainer,
+  IWHTML40Container, IWRegion, IWCompEdit, Uframe, IWCompLabel, IWBaseComponent,
+  IWBaseHTMLComponent, IWBaseHTML40Component, IWCompExtCtrls;
+
+type
+  TIW_login = class(TIWAppForm)
+    iwrgn4: TIWRegion;
+    iwrgn1: TIWRegion;
+    iwdt1: TIWEdit;
+    iwdt2: TIWEdit;
+    iwbtn1: TIWButton;
+    iwrgn3: TIWRegion;
+    iwfrm1: TIWFrame;
+    iwlbl1: TIWLabel;
+    iwlbl2: TIWLabel;
+    iwbtnreg: TIWButton;
+    iwbtn2: TIWButton;
+    iwlbl3: TIWLabel;
+    iwlbl4: TIWLabel;
+    iwlbl5: TIWLabel;
+    iwdt3: TIWEdit;
+    iwdt4: TIWEdit;
+    iwbtn3: TIWButton;
+    procedure iwbtnregClick(Sender: TObject);
+    procedure iwbtn1Click(Sender: TObject);
+    procedure IWAppFormCreate(Sender: TObject);
+    procedure iwbtn3Click(Sender: TObject);
+    procedure iwbtn2Click(Sender: TObject);
+  public
+  end;
+
+implementation
+
+{$R *.dfm}
+
+uses ServerController, UserSessionUnit, Umain;
+
+
+procedure TIW_login.IWAppFormCreate(Sender: TObject);
+begin
+//JavaScript.Text :='';
+//iwbtn2.ScriptEvents.Values['onclick'] :='IWDT2IWCL.value = getLocation();';
+iwbtn2.ScriptEvents.Values['onclick'] :='getLocation();';
+end;
+
+procedure TIW_login.iwbtn1Click(Sender: TObject);
+begin
+if Trim(iwdt1.Text)='' then
+begin
+WebApplication.ShowMessage('用户不能为空');
+exit;
+end;
+
+with UserSession.qryuser do
+begin
+  Close;
+  sql.Clear;
+  SQL.Add('select * from xs_user where uname = ');
+  sql.Add(''''+iwdt1.Text+''' and upass = ');
+  sql.Add(''''+iwdt2.Text+'''');
+  //WebApplication.ShowMessage(sql.Text);
+  Open;
+  if RecordCount>0  then
+  begin
+  UserSession.uname:=iwdt1.Text;                      //用户名
+  UserSession.ulevel:=FieldByName('ulevel').asstring;  //权限等级
+  tiwformmain.Create(WebApplication).show;
+
+  end
+  else
+  begin
+    WebApplication.ShowMessage('无此用户');
+    exit;
+  end;
+
+
+end;
+
+end;
+
+procedure TIW_login.iwbtn2Click(Sender: TObject);
+begin
+exit;
+end;
+
+procedure TIW_login.iwbtn3Click(Sender: TObject);
+begin
+
+iwbtn2Click(Sender);      //点击jsbutton获取GPS
+
+with UserSession.qryPosition do
+begin
+  Close;
+  sql.Clear;
+  SQL.Add('insert into S_position (S_jindu,S_weidu,S_time,S_user) values ( ');
+  sql.Add(''''+iwdt3.Text+''',');
+  sql.Add(''''+iwdt4.Text+''',');
+  SQL.Add(''''+FormatDateTime('yyyy-MM-dd hh:mm:ss ',now())+''',');
+  sql.Add(''''+UserSession.uname+''')');
+  //WebApplication.ShowMessage(sql.Text);
+  ExecSQL;
+end;
+end;
+
+procedure TIW_login.iwbtnregClick(Sender: TObject);
+begin
+
+if Trim(iwdt1.Text)='' then
+begin
+WebApplication.ShowMessage('用户不能为空');
+exit;
+end;
+
+with UserSession.qryuser do
+begin
+Close;
+sql.Clear;
+sql.Add('select * from xs_user where uname='''+iwdt1.Text+'''');
+Open;
+if RecordCount>0 then
+begin
+WebApplication.ShowMessage('用户已经存在');
+Exit;
+end;
+
+Close;
+sql.Clear;
+SQL.Add('insert into xs_user (uname,upass,ulevel,udate) values ( ');
+sql.Add(''''+iwdt1.Text+''',');
+sql.Add(''''+iwdt2.Text+''',');
+sql.Add('''2'',');
+SQL.Add(''''+FormatDateTime('yyyy-MM-dd hh:mm:ss ',now())+''')');
+//WebApplication.ShowMessage(sql.Text);
+ExecSQL;
+WebApplication.ShowMessage('注册-'+iwdt1.Text+'-成功');
+end;
+end;
+
+initialization
+  TIW_login.SetAsMainForm;
+
+end.

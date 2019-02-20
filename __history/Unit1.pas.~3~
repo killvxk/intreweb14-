@@ -1,0 +1,43 @@
+unit Unit1;
+
+interface
+
+uses
+  Classes, SysUtils, IWAppForm, IWApplication, IWColor, IWTypes, Vcl.Controls,
+  IWVCLBaseControl, IWBaseControl, IWBaseHTMLControl, IWControl, IWWebGrid,
+  IWDBAdvWebGrid, IWCompButton, IWAdvWebGridExcel;
+
+type
+  TIWForm1 = class(TIWAppForm)
+    twdbdvwbgrd1: TTIWDBAdvWebGrid;
+    iwbtn1: TIWButton;
+    twdvwbgrdxcl1: TTIWAdvWebGridExcelIO;
+    procedure twdbdvwbgrd1AsyncButtonClick(Sender: TObject;
+      EventParams: TStringList; RowIndex, ColumnIndex: Integer);
+    procedure iwbtn1Click(Sender: TObject);
+  public
+  end;
+
+implementation
+
+{$R *.dfm}
+
+uses ServerController, UserSessionUnit;
+
+
+procedure TIWForm1.iwbtn1Click(Sender: TObject);
+begin
+  twdvwbgrdxcl1.XLSExport('11.xls',WebApplication);
+end;
+
+procedure TIWForm1.twdbdvwbgrd1AsyncButtonClick(Sender: TObject;
+  EventParams: TStringList; RowIndex, ColumnIndex: Integer);
+begin
+WebApplication.ShowMessage(inttostr(Columnindex));
+WebApplication.ShowMessage(inttostr(RowIndex));
+end;
+
+initialization
+  TIWForm1.SetAsMainForm;
+
+end.

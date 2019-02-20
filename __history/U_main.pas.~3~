@@ -1,0 +1,54 @@
+unit U_main;
+
+interface
+
+uses
+  Classes, SysUtils, IWAppForm, IWApplication, IWColor, IWTypes, Vcl.Controls,
+  IWVCLBaseControl, IWBaseControl, IWBaseHTMLControl, IWControl, IWWebGrid,
+  IWDBAdvWebGrid, IWCompButton, IWAdvWebGridExcel, Vcl.Forms, U_frame,
+  IWVCLBaseContainer, IWContainer, IWHTMLContainer, IWHTML40Container, IWRegion;
+
+type
+  TIWmain = class(TIWAppForm)
+    twdbdvwbgrd1: TTIWDBAdvWebGrid;
+    iwbtn1: TIWButton;
+    twdvwbgrdxcl1: TTIWAdvWebGridExcelIO;
+    iwfrm: TIWFrame2;
+    iwrgn1: TIWRegion;
+    procedure twdbdvwbgrd1AsyncButtonClick(Sender: TObject;
+      EventParams: TStringList; RowIndex, ColumnIndex: Integer);
+    procedure iwbtn1Click(Sender: TObject);
+    procedure IWAppFormCreate(Sender: TObject);
+  public
+  end;
+
+implementation
+
+{$R *.dfm}
+
+uses ServerController, UserSessionUnit;
+
+
+procedure TIWmain.IWAppFormCreate(Sender: TObject);
+begin
+iwfrm.Top:=0;
+iwfrm.Left:=0;
+
+end;
+
+procedure TIWmain.iwbtn1Click(Sender: TObject);
+begin
+  twdvwbgrdxcl1.XLSExport('11.xls',WebApplication);  //下载本记录集
+end;
+
+procedure TIWmain.twdbdvwbgrd1AsyncButtonClick(Sender: TObject;
+  EventParams: TStringList; RowIndex, ColumnIndex: Integer);
+begin
+WebApplication.ShowMessage('列号'+inttostr(Columnindex));   //列号
+WebApplication.ShowMessage('行号'+inttostr(RowIndex));    //h行号
+end;
+
+initialization
+ // TIWmain.SetAsMainForm;
+
+end.
