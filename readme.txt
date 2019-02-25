@@ -1,6 +1,6 @@
 CREATE TABLE `zhoubao` (
   `id` int(5) NOT NULL auto_increment COMMENT 'id',
-  `sdate` date default NULL COMMENT '发布日期',
+  `sdate` date default NULL COMMENT '路垄虏录脠脮脝脷',
   `sfabr` varchar(255) default NULL,
   `jiesr` varchar(255) default NULL,
   `wancd` varchar(255) default NULL,
@@ -15,4 +15,5 @@ CREATE TABLE `zhoubao` (
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=49 DEFAULT CHARSET=utf8;
 
---https://www.cnblogs.com/specter45/p/github.html#s1  如何推送到gitbub
+--https://www.cnblogs.com/specter45/p/github.html#s1  脠莽潞脦脥脝脣脥碌陆gitbub
+--https://www.cnblogs.com/zhoumiao/p/8018249.html 浣跨敤git  gui鏁欑▼
