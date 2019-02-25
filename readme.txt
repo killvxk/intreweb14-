@@ -17,4 +17,5 @@ CREATE TABLE `zhoubao` (
 
 --https://www.cnblogs.com/specter45/p/github.html#s1  ÈçºÎÍÆËÍµ½gitbub
 --https://www.cnblogs.com/zhoumiao/p/8018249.html 使用git  gui教程
+--更新的话 先remote- fetch 然后  merge-local
 
