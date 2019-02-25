@@ -1,0 +1,22 @@
+unit U_tongji;
+
+interface
+
+uses
+  Classes, SysUtils, IWAppForm, IWApplication, IWColor, IWTypes, Vcl.Controls,
+  Vcl.Forms, U_frame;
+
+type
+  TIWForm3 = class(TIWAppForm)
+    iwfrm: TIWFrame2;
+  public
+  end;
+
+implementation
+
+{$R *.dfm}
+
+uses ServerController, U_frame, UserSessionUnit;
+
+
+end.

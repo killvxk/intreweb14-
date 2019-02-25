@@ -1,0 +1,73 @@
+object IWtongji: TIWtongji
+  Left = 0
+  Top = 0
+  Width = 800
+  Height = 728
+  RenderInvisibleControls = True
+  AllowPageAccess = True
+  ConnectionMode = cmAny
+  Background.Fixed = False
+  HandleTabs = False
+  LeftToRight = True
+  LockUntilLoaded = True
+  LockOnSubmit = True
+  ShowHint = True
+  XPTheme = True
+  DesignLeft = 8
+  DesignTop = 8
+  object iwrgn1: TIWRegion
+    Left = 0
+    Top = 0
+    Width = 800
+    Height = 121
+    RenderInvisibleControls = True
+    Align = alTop
+    BorderOptions.NumericWidth = 1
+    BorderOptions.BorderWidth = cbwNumeric
+    BorderOptions.Style = cbsSolid
+    BorderOptions.Color = clNone
+    inline iwfrm: TIWFrame2
+      Left = 1
+      Top = 1
+      Width = 798
+      Height = 119
+      Align = alClient
+      TabOrder = 0
+      ExplicitLeft = 1
+      ExplicitTop = 1
+      ExplicitWidth = 798
+      ExplicitHeight = 119
+      inherited IWFrameRegion: TIWRegion
+        Width = 798
+        Height = 119
+        Align = alClient
+        ExplicitWidth = 798
+        ExplicitHeight = 119
+      end
+    end
+  end
+  object iwrgn2: TIWRegion
+    Left = 0
+    Top = 121
+    Width = 800
+    Height = 559
+    RenderInvisibleControls = True
+    Align = alClient
+    BorderOptions.NumericWidth = 1
+    BorderOptions.BorderWidth = cbwNumeric
+    BorderOptions.Style = cbsSolid
+    BorderOptions.Color = clNone
+  end
+  object iwrgn3: TIWRegion
+    Left = 0
+    Top = 680
+    Width = 800
+    Height = 48
+    RenderInvisibleControls = True
+    Align = alBottom
+    BorderOptions.NumericWidth = 1
+    BorderOptions.BorderWidth = cbwNumeric
+    BorderOptions.Style = cbsSolid
+    BorderOptions.Color = clNone
+  end
+end
