@@ -1,4 +1,4 @@
-CREATE TABLE `zhoubao` (
+﻿CREATE TABLE `zhoubao` (
   `id` int(5) NOT NULL auto_increment COMMENT 'id',
   `sdate` date default NULL COMMENT '·¢²¼ÈÕÆÚ',
   `sfabr` varchar(255) default NULL,
@@ -17,5 +17,5 @@ CREATE TABLE `zhoubao` (
 
 --https://www.cnblogs.com/specter45/p/github.html#s1  ÈçºÎÍÆËÍµ½gitbub
 --https://www.cnblogs.com/zhoumiao/p/8018249.html 使用git  gui教程
---更新的话 先remote- fetch 然后  merge-local
-
+--远程更新的话 先remote- fetch 然后  merge-local
+--本地更新的话。commit后【push
