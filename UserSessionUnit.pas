@@ -26,7 +26,7 @@ type
 
   public
     { Public declarations }
-    uname,ulevel:string;
+    uname,ulevel,uarea:string;
      function reguser(user:string;upass:string):Integer;stdcall;
      function login(user:string;psw:string;Stime:string): Integer;stdcall;
      function loguser(user:string):Integer;stdcall;
@@ -90,6 +90,7 @@ with  TUniQuery.Create(nil) do
     begin
     UserSession.uname:=user;                      //用户名
     UserSession.ulevel:=FieldByName('ulevel').asstring;  //权限等级
+    UserSession.uarea:=FieldByName('uarea').asstring;  //地区
     Result:=1;
 
 

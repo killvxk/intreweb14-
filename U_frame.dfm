@@ -1,8 +1,8 @@
 object IWFrame2: TIWFrame2
   Left = 0
   Top = 0
-  Width = 749
-  Height = 98
+  Width = 685
+  Height = 100
   TabOrder = 0
   object IWFrameRegion: TIWRegion
     Left = 0
@@ -11,12 +11,11 @@ object IWFrame2: TIWFrame2
     Height = 98
     RenderInvisibleControls = True
     TabOrder = 0
-    Align = alClient
     BorderOptions.NumericWidth = 1
     BorderOptions.BorderWidth = cbwNumeric
     BorderOptions.Style = cbsSolid
     BorderOptions.Color = clNone
-    ExplicitWidth = 765
+    Color = clMoneyGreen
     object iwlnk1: TIWLink
       Left = 16
       Top = 16
@@ -49,7 +48,7 @@ object IWFrame2: TIWFrame2
       OnClick = IWLink1Click
       TabOrder = 1
       RawText = False
-      Caption = #39318#39029
+      Caption = #20027#34920
     end
     object iwlnk2: TIWLink
       Left = 98
@@ -63,9 +62,10 @@ object IWFrame2: TIWFrame2
       Font.Style = [fsUnderline]
       DoSubmitValidation = False
       FriendlyName = 'iwlnk1'
+      OnClick = iwlnk2Click
       TabOrder = 2
       RawText = False
-      Caption = #39318#39029
+      Caption = #32479#35745
     end
     object iwlnk3: TIWLink
       Left = 139

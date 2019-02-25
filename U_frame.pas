@@ -21,6 +21,7 @@ type
     procedure iwlnk6Click(Sender: TObject);
     procedure IWLink1Click(Sender: TObject);
     procedure iwlnk1Click(Sender: TObject);
+    procedure iwlnk2Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -32,7 +33,7 @@ type
 implementation
 
 uses
-  ServerController, UserSessionUnit, U_login, U_main;
+  ServerController, UserSessionUnit, U_login, U_main, U_tongji;
 
 {$R *.dfm}
 
@@ -52,6 +53,11 @@ begin
    //TIWAppForm(WebApplication.ActiveForm).Release;
   // Create the next form
   Move(TIW_login);
+end;
+
+procedure TIWFrame2.iwlnk2Click(Sender: TObject);
+begin
+move(TIWtongji);
 end;
 
 procedure TIWFrame2.iwlnk6Click(Sender: TObject);

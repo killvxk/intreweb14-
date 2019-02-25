@@ -26,6 +26,7 @@ type
     procedure IWAppFormCreate(Sender: TObject);
 
     procedure iwbtn2Click(Sender: TObject);
+    procedure iwlbl3AsyncClick(Sender: TObject; EventParams: TStringList);
   public
   end;
 
@@ -86,6 +87,12 @@ else
  WebApplication.ShowMessage('×¢²áÊ§°Ü');
 end;
 
+
+procedure TIW_login.iwlbl3AsyncClick(Sender: TObject; EventParams: TStringList);
+begin
+       Self.WebApplication.ActiveForm.Free;
+    TIWmain.Create(WebApplication).Show;
+end;
 
 initialization
   TIW_login.SetAsMainForm;

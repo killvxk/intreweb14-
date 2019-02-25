@@ -14,3 +14,5 @@ CREATE TABLE `zhoubao` (
   `zhicsj` date default NULL,
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=49 DEFAULT CHARSET=utf8;
+
+--https://www.cnblogs.com/specter45/p/github.html#s1  如何推送到gitbub

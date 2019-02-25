@@ -1,24 +1,27 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <BorlandProject>
 	<Transactions>
-    <Transaction>1899-12-30 00:00:00.000.907,I:\同步文件\001.教程文件\delphi教程\xe5工程\iw14_手机网站_mysql\U_login.pas=</Transaction>
     <Transaction>1899-12-30 00:00:00.000.457,=I:\同步文件\001.教程文件\delphi教程\xe5工程\iw-test\Project1\ModelSupport_Project1\Project1\default.txvpck</Transaction>
-    <Transaction>1899-12-30 00:00:00.000.112,=I:\同步文件\001.教程文件\delphi教程\xe5工程\iw-test\Project1\U_login.pas</Transaction>
-    <Transaction>1899-12-30 00:00:00.000.258,=I:\同步文件\001.教程文件\delphi教程\xe5工程\iw14_手机网站_mysql\U_login.pas</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.907,I:\同步文件\001.教程文件\delphi教程\xe5工程\iw14_手机网站_mysql\U_login.pas=</Transaction>
     <Transaction>1899-12-30 00:00:00.000.623,=C:\Users\Administrator\Desktop\iw-萧山公安周报系统\Unit2.pas</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.318,I:\同步文件\001.教程文件\delphi教程\xe5工程\iw-test\Project1\U_login.pas=</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.112,=I:\同步文件\001.教程文件\delphi教程\xe5工程\iw-test\Project1\U_login.pas</Transaction>
     <Transaction>1899-12-30 00:00:00.000.250,C:\Users\Administrator\Desktop\iw-萧山公安周报系统\U_frame.pas=C:\Users\Administrator\Desktop\iw-萧山公安周报系统\Unit2.pas</Transaction>
     <Transaction>1899-12-30 00:00:00.000.392,=I:\同步文件\001.教程文件\delphi教程\xe5工程\iw-test\Project1\ModelSupport_Project1\default.txaPackage</Transaction>
-    <Transaction>1899-12-30 00:00:00.000.584,=I:\同步文件\001.教程文件\delphi教程\xe5工程\iw-test\Project1\ServerController.pas</Transaction>
     <Transaction>1899-12-30 00:00:00.000.744,I:\同步文件\001.教程文件\delphi教程\xe5工程\iw-test\Project1\Unit1.dfm=I:\同步文件\001.教程文件\delphi教程\xe5工程\iw-test\Project1\U_main.dfm</Transaction>
-    <Transaction>1899-12-30 00:00:00.000.621,=I:\同步文件\001.教程文件\delphi教程\xe5工程\iw-test\Project1\UserSessionUnit.pas</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.258,=I:\同步文件\001.教程文件\delphi教程\xe5工程\iw14_手机网站_mysql\U_login.pas</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.584,=I:\同步文件\001.教程文件\delphi教程\xe5工程\iw-test\Project1\ServerController.pas</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.028,=I:\同步文件\001.教程文件\delphi教程\xe5工程\iw-test\Project1\U_login.pas</Transaction>
     <Transaction>1899-12-30 00:00:00.000.250,C:\Users\Administrator\Desktop\iw-萧山公安周报系统\U_frame.dfm=C:\Users\Administrator\Desktop\iw-萧山公安周报系统\Unit2.dfm</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.786,I:\同步文件\001.教程文件\delphi教程\xe5工程\iw-萧山公安周报系统\Unit3.dfm=I:\同步文件\001.教程文件\delphi教程\xe5工程\iw-萧山公安周报系统\U_tongji.dfm</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.621,=I:\同步文件\001.教程文件\delphi教程\xe5工程\iw-test\Project1\UserSessionUnit.pas</Transaction>
     <Transaction>1899-12-30 00:00:00.000.730,=I:\同步文件\001.教程文件\delphi教程\xe5工程\iw-test\Project1\ModelSupport_Project1\default.txvpck</Transaction>
     <Transaction>1899-12-30 00:00:00.000.063,=I:\同步文件\001.教程文件\delphi教程\xe5工程\iw-test\Project1\ModelSupport_Project1\UserSessionUnit\default.txvpck</Transaction>
-    <Transaction>1899-12-30 00:00:00.000.383,=I:\同步文件\001.教程文件\delphi教程\xe5工程\iw-test\Project1\ModelSupport_Project1\Unit1\default.txvpck</Transaction>
-    <Transaction>1899-12-30 00:00:00.000.318,I:\同步文件\001.教程文件\delphi教程\xe5工程\iw-test\Project1\U_login.pas=</Transaction>
-    <Transaction>1899-12-30 00:00:00.000.028,=I:\同步文件\001.教程文件\delphi教程\xe5工程\iw-test\Project1\U_login.pas</Transaction>
-    <Transaction>1899-12-30 00:00:00.000.744,I:\同步文件\001.教程文件\delphi教程\xe5工程\iw-test\Project1\Unit1.pas=I:\同步文件\001.教程文件\delphi教程\xe5工程\iw-test\Project1\U_main.pas</Transaction>
     <Transaction>1899-12-30 00:00:00.000.233,=I:\同步文件\001.教程文件\delphi教程\xe5工程\iw-test\Project1\Unit1.pas</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.744,I:\同步文件\001.教程文件\delphi教程\xe5工程\iw-test\Project1\Unit1.pas=I:\同步文件\001.教程文件\delphi教程\xe5工程\iw-test\Project1\U_main.pas</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.188,=I:\同步文件\001.教程文件\delphi教程\xe5工程\iw-萧山公安周报系统\Unit3.pas</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.383,=I:\同步文件\001.教程文件\delphi教程\xe5工程\iw-test\Project1\ModelSupport_Project1\Unit1\default.txvpck</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.786,I:\同步文件\001.教程文件\delphi教程\xe5工程\iw-萧山公安周报系统\Unit3.pas=I:\同步文件\001.教程文件\delphi教程\xe5工程\iw-萧山公安周报系统\U_tongji.pas</Transaction>
   </Transactions>
 	<ProjectSortOrder AutoSort="0" SortType="0">
     <File Path="ModelSupport_Project1"/>
@@ -40,5 +43,7 @@
     <File Path="U_login.dfm"/>
     <File Path="U_main.pas"/>
     <File Path="U_main.dfm"/>
+    <File Path="U_tongji.pas"/>
+    <File Path="U_tongji.dfm"/>
   </ProjectSortOrder>
 </BorlandProject>

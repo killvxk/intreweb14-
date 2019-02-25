@@ -69,6 +69,7 @@ object IW_login: TIW_login
       HasTabOrder = False
       FriendlyName = 'iwlbl3'
       Caption = '   2017-8-15   '
+      OnAsyncClick = iwlbl3AsyncClick
     end
   end
   object iwrgn1: TIWRegion

@@ -18,8 +18,7 @@ object IWUserSession: TIWUserSession
   object unqry1: TUniQuery
     Connection = con1
     SQL.Strings = (
-      'select * from zhoubao order by id desc')
-    Active = True
+      'select * from zhoubao sfdel=0 order by id desc')
     Left = 112
     Top = 64
   end

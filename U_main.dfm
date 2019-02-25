@@ -1,8 +1,8 @@
 object IWmain: TIWmain
   Left = 0
   Top = 0
-  Width = 782
-  Height = 744
+  Width = 779
+  Height = 1000
   RenderInvisibleControls = True
   AllowPageAccess = True
   ConnectionMode = cmAny
@@ -15,12 +15,12 @@ object IWmain: TIWmain
   ShowHint = True
   XPTheme = True
   DesignLeft = 8
-  DesignTop = 8
+  DesignTop = -119
   object twdbdvwbgrd1: TTIWDBAdvWebGrid
     Left = 13
     Top = 365
-    Width = 650
-    Height = 585
+    Width = 647
+    Height = 556
     Align = alCustom
     Anchors = [akLeft, akTop, akRight, akBottom]
     ActiveRowColor = clNone
@@ -168,7 +168,6 @@ object IWmain: TIWmain
         ColumnHeaderFont.Color = clNone
         ColumnHeaderFont.Size = 10
         ColumnHeaderFont.Style = []
-        ColumnType = ctLink
         DefaultDynEdit = '0'
         DefaultDynText = '0'
         DetailFont.Color = clNone
@@ -180,29 +179,9 @@ object IWmain: TIWmain
         FooterFormat = '%g'
         SpinEditMaxValue = 100
         SpinEditMinValue = 0
-        Template = #35814#32454#20449#24687
+        Title = #38382#39064#24402#31867
         Width = 80
-      end
-      item
-        CheckTrue = 'true'
-        CheckFalse = 'false'
-        ColumnHeaderFont.Color = clNone
-        ColumnHeaderFont.Size = 10
-        ColumnHeaderFont.Style = []
-        ColumnType = ctButton
-        DefaultDynEdit = '0'
-        DefaultDynText = '0'
-        DetailFont.Color = clNone
-        DetailFont.Size = 10
-        DetailFont.Style = []
-        Font.Color = clNone
-        Font.Size = 10
-        Font.Style = []
-        FooterFormat = '%g'
-        SpinEditMaxValue = 100
-        SpinEditMinValue = 0
-        Template = #27979#35797
-        Width = 80
+        DataField = 'wentigl'
       end
       item
         CheckTrue = 'true'
@@ -243,10 +222,115 @@ object IWmain: TIWmain
         FooterFormat = '%g'
         SpinEditMaxValue = 100
         SpinEditMinValue = 0
-        Title = #22788#29702#26041#24335
+        Title = #21518#32493#35745#21010
         Visible = False
         Width = 0
         DataField = 'houxjh'
+      end
+      item
+        CheckTrue = 'true'
+        CheckFalse = 'false'
+        ColumnHeaderFont.Color = clNone
+        ColumnHeaderFont.Size = 10
+        ColumnHeaderFont.Style = []
+        DefaultDynEdit = '0'
+        DefaultDynText = '0'
+        DetailFont.Color = clNone
+        DetailFont.Size = 10
+        DetailFont.Style = []
+        Font.Color = clNone
+        Font.Size = 10
+        Font.Style = []
+        FooterFormat = '%g'
+        SpinEditMaxValue = 100
+        SpinEditMinValue = 0
+        Title = #21306#22495
+        Visible = False
+        DataField = 'uarea'
+      end
+      item
+        CheckTrue = 'true'
+        CheckFalse = 'false'
+        ColumnHeaderFont.Color = clNone
+        ColumnHeaderFont.Size = 10
+        ColumnHeaderFont.Style = []
+        DefaultDynEdit = '0'
+        DefaultDynText = '0'
+        DetailFont.Color = clNone
+        DetailFont.Size = 10
+        DetailFont.Style = []
+        Font.Color = clNone
+        Font.Size = 10
+        Font.Style = []
+        FooterFormat = '%g'
+        SpinEditMaxValue = 100
+        SpinEditMinValue = 0
+        Title = #26159#21542#23436#25104
+        Visible = False
+        DataField = 'sfwc'
+      end
+      item
+        CheckTrue = 'true'
+        CheckFalse = 'false'
+        ColumnHeaderFont.Color = clNone
+        ColumnHeaderFont.Size = 10
+        ColumnHeaderFont.Style = []
+        DefaultDynEdit = '0'
+        DefaultDynText = '0'
+        DetailFont.Color = clNone
+        DetailFont.Size = 10
+        DetailFont.Style = []
+        Font.Color = clNone
+        Font.Size = 10
+        Font.Style = []
+        FooterFormat = '%g'
+        SpinEditMaxValue = 100
+        SpinEditMinValue = 0
+        Title = #26159#21542#24402#26723
+        Visible = False
+        DataField = 'sfgd'
+      end
+      item
+        CheckTrue = 'true'
+        CheckFalse = 'false'
+        ColumnHeaderFont.Color = clNone
+        ColumnHeaderFont.Size = 10
+        ColumnHeaderFont.Style = []
+        ColumnType = ctLink
+        DefaultDynEdit = '0'
+        DefaultDynText = '0'
+        DetailFont.Color = clNone
+        DetailFont.Size = 10
+        DetailFont.Style = []
+        Font.Color = clNone
+        Font.Size = 10
+        Font.Style = []
+        FooterFormat = '%g'
+        SpinEditMaxValue = 100
+        SpinEditMinValue = 0
+        Template = #35814#32454#20449#24687
+        Width = 80
+      end
+      item
+        CheckTrue = 'true'
+        CheckFalse = 'false'
+        ColumnHeaderFont.Color = clNone
+        ColumnHeaderFont.Size = 10
+        ColumnHeaderFont.Style = []
+        ColumnType = ctButton
+        DefaultDynEdit = '0'
+        DefaultDynText = '0'
+        DetailFont.Color = clNone
+        DetailFont.Size = 10
+        DetailFont.Style = []
+        Font.Color = clNone
+        Font.Size = 10
+        Font.Style = []
+        FooterFormat = '%g'
+        SpinEditMaxValue = 100
+        SpinEditMinValue = 0
+        Template = #27979#35797
+        Width = 80
       end>
     ColumnHeaderColor = clBtnFace
     ColumnHeaderFont.Color = clNone
@@ -584,18 +668,16 @@ object IWmain: TIWmain
     DataSource = IWUserSession.ds1
   end
   inline iwfrm: TIWFrame2
-    Left = 13
-    Top = 3
-    Width = 600
-    Height = 98
+    Left = 0
+    Top = 0
+    Width = 782
+    Height = 100
     TabOrder = 0
-    ExplicitLeft = 13
-    ExplicitTop = 3
-    ExplicitWidth = 600
+    ExplicitWidth = 782
     inherited IWFrameRegion: TIWRegion
-      Width = 600
+      Width = 782
       TabOrder = 1
-      ExplicitWidth = 600
+      ExplicitWidth = 782
     end
   end
   object iwrgn1: TIWRegion

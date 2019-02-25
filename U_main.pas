@@ -81,8 +81,19 @@ iwfrm.Top:=0;
 iwfrm.Left:=(ClientWidth - iwfrm.Width) div 2;
 iwrgn1.Left:=(ClientWidth - iwrgn1.Width) div 2;
 twdbdvwbgrd1.Left:=(ClientWidth - twdbdvwbgrd1.Width) div 2;  }
-iwlbl7.Caption:=UserSession.uname;
+if UserSession.ulevel='1' then
+  begin
+     iwlbl7.Width:=60;
+    iwlbl7.Caption:='管理员='+UserSession.uname;
+  end;
+if UserSession.ulevel='2' then
+  begin
+     iwlbl7.Width:=60;
+    iwlbl7.Caption:='普通='+UserSession.uname;
+  end;
+
 iwbtnjieshou.Visible:=False;
+iwbtn2.OnClick(Sender);    //为了只显示登录用户
 end;
 
 procedure TIWmain.iwbtn1Click(Sender: TObject);
@@ -92,9 +103,33 @@ begin
 end;
  procedure TIWmain.iwbtn2Click(Sender: TObject);
 begin
- UserSession.unqry1.Refresh;
-  UserSession.qryPosition.Refresh;
-end;
+  //UserSession.unqry1.Refresh;
+ if usersession.ulevel= '2' then
+ begin
+   with  UserSession.unqry1 do
+ begin
+  Close;
+  sql.Clear;
+  SQL.Add('select * from zhoubao where sfdel=0 and sfabr = ');
+  sql.Add(''''+usersession.uname+''' order by id desc ');
+
+  Open;
+ end;
+ end
+ else
+ begin
+   with  UserSession.unqry1 do
+ begin
+  Close;
+  sql.Clear;
+  SQL.Add('select * from zhoubao where sfdel=0 order by id desc ');
+  Open;
+ end;
+ end;
+   UserSession.qryPosition.Refresh;
+ end;
+
+
 
 //接受任务
 procedure TIWmain.iwbtnjieshouClick(Sender: TObject);
@@ -114,13 +149,14 @@ begin
   if Locate('id',ssid,[]) then  //查找
   begin
     Edit;
-    Fields.FieldByName('jiesr').AsString:=UserSession.uname;
-    Fields.FieldByName('chulfs').AsString:=iwdt3.Text;
-    Fields.FieldByName('houxjh').AsString:=iwdt6.Text;
-    Fields.FieldByName('sfgd').AsBoolean:=iwchckbx1.Checked;
-    FieldByName('sfwc').AsBoolean:=iwchckbx2.Checked;
-    FieldByName('haos').AsString:=iwdt2.Text;
+    Fields.FieldByName('jiesr').AsString:=UserSession.uname;    //经办人
+    Fields.FieldByName('chulfs').AsString:=iwdt3.Text;         //处理方式
+    Fields.FieldByName('houxjh').AsString:=iwdt6.Text;        //后续计划
+    Fields.FieldByName('sfgd').AsBoolean:=iwchckbx1.Checked;    //是否归档
+    FieldByName('sfwc').AsBoolean:=iwchckbx2.Checked;           //是否完成
+    FieldByName('haos').AsString:=iwdt2.Text;                   //耗时
     FieldByName('wentigl').AsString:=cbb1.SelectedText;
+    FieldByName('uarea').AsString:=UserSession.uarea;          //问题归类
     Post;
 
   end;
@@ -138,6 +174,7 @@ begin
   Fields.FieldByName('sdate').Value:=FormatDateTime('yyyy-MM-dd HH:nn:ss',now());
   Fields.FieldByName('sfabr').Value:=UserSession.uname;
   Fields.FieldByName('xiangmmc').Value:= iwdt1.Text;
+  Fields.FieldByName('uarea').Value:= UserSession.uarea;
   Post;
   end;
   UserSession.unqry1.refresh;
@@ -154,9 +191,25 @@ end;
 procedure TIWmain.twdbdvwbgrd1AsyncButtonClick(Sender: TObject;
   EventParams: TStringList; RowIndex, ColumnIndex: Integer);
 begin
-WebApplication.ShowMessage('列号'+inttostr(Columnindex));   //列号
-WebApplication.ShowMessage('行号'+inttostr(RowIndex));    //h行号
-WebApplication.ShowMessage(twdbdvwbgrd1.CellValues[1,rowindex]);
+//WebApplication.ShowMessage('列号'+inttostr(Columnindex));   //列号
+//WebApplication.ShowMessage('行号'+inttostr(RowIndex));    //h行号
+//WebApplication.ShowMessage(twdbdvwbgrd1.CellValues[1,rowindex]);
+ ssid:=twdbdvwbgrd1.CellValues[0,rowindex];
+ with UserSession.qryPosition do
+begin
+
+  Open;
+
+  if Locate('id',ssid,[]) then  //查找
+  begin
+    Edit;
+    Fields.FieldByName('sfdel').AsString:='1';    //删除标记
+    Post;
+
+  end;
+  UserSession.unqry1.Refresh;
+
+end;
 
 end;
 
@@ -167,7 +220,7 @@ procedure TIWmain.twdbdvwbgrd1AsyncLinkClick(Sender: TObject;
 begin
  iwdt1.Text:=twdbdvwbgrd1.CellValues[3,rowindex];    //项目名
  iwdt3.Text:=twdbdvwbgrd1.CellValues[4,rowindex];    //处理方式
- iwdt6.Text:=twdbdvwbgrd1.CellValues[8,rowindex];    //后续计划
+ iwdt6.Text:=twdbdvwbgrd1.CellValues[7,rowindex];    //后续计划
  ssid:=twdbdvwbgrd1.CellValues[0,rowindex];
  iwbtnjieshou.Visible:=true;  //允许编辑
  iwlbl7.Caption:=UserSession.uname+'-'+ssid;
