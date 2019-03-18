@@ -1,0 +1,65 @@
+unit U_tongji;
+
+interface
+
+uses
+  Classes, SysUtils, IWAppForm, IWApplication, IWColor, IWTypes, Vcl.Controls,
+  Vcl.Forms, U_frame, IWVCLBaseContainer, IWContainer, IWHTMLContainer,
+  IWHTML40Container, IWRegion, VclTee.TeeGDIPlus, VCLTee.TeEngine,
+  VCLTee.Series, Vcl.ExtCtrls, VCLTee.TeeProcs, VCLTee.Chart, Data.DB,
+  VCLTee.TeeData, IWVCLBaseControl, IWBaseControl, IWBaseHTMLControl, IWControl,
+  IWHTMLControls, IWDBAdvChart;
+
+type
+  TIWtongji = class(TIWAppForm)
+    iwrgn1: TIWRegion;
+    iwfrm: TIWFrame2;
+    iwrgn2: TIWRegion;
+    iwrgn3: TIWRegion;
+    iwlnk1: TIWLink;
+    iwlnk2: TIWLink;
+    iwlnk3: TIWLink;
+    iwlnk4: TIWLink;
+    iwlnk5: TIWLink;
+    twdbdvchrt1: TTIWDBAdvChart;
+    procedure iwlnk1Click(Sender: TObject);
+    procedure iwlnk2Click(Sender: TObject);
+    procedure iwlnk3Click(Sender: TObject);
+    procedure iwlnk4Click(Sender: TObject);
+    procedure iwlnk5Click(Sender: TObject);
+  public
+  end;
+
+implementation
+
+{$R *.dfm}
+
+uses ServerController,  UserSessionUnit;
+
+
+procedure TIWtongji.iwlnk1Click(Sender: TObject);
+begin
+  WebApplication.SendFile('1.html');
+end;
+
+procedure TIWtongji.iwlnk2Click(Sender: TObject);
+begin
+  WebApplication.SendFile('/1.html');
+end;
+
+procedure TIWtongji.iwlnk3Click(Sender: TObject);
+begin
+  WebApplication.SendFile('wwwroot/1.html');       //对的，这句又不是很好理解
+end;
+
+procedure TIWtongji.iwlnk4Click(Sender: TObject);
+begin
+  WebApplication.NewWindow('wwwroot/1.html');
+end;
+
+procedure TIWtongji.iwlnk5Click(Sender: TObject);
+begin
+  WebApplication.NewWindow('1.html');         //所以app默认是认为自己是在wwwroot里面
+end;
+
+end.

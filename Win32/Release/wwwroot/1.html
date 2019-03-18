@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+
+<meta http-equiv="content-type" content="text/html; charset=gb2312"/>
+
+<style type="text/css">
+
+html {height: auto;}
+
+body {height: auto;margin: 0;padding: 0;}
+
+#map_canvas {width:1000px;height: 500px;position: absolute;}
+
+@media print {#map_canvas {height: 950px;}}
+
+</style>
+
+<title>搜狗地图 JavaScript API 示例: 使用 标准经纬度  示例</title>
+
+<script type="text/javascript" src="http://api.go2map.com/maps/js/api_v2.5.1.js"></script>
+
+<script type="text/javascript">
+
+  /**
+
+   * 标准经纬度 无需转换，直接调用API方法送入经纬度即可，系统自动解决纠偏问题。
+
+   *
+
+   * 标准经纬度 是指从GPS设备获取的精确的经纬度坐标
+
+   * 根据国家测绘局现行规定，所有的互联网地图都需要加密转换后方可提供地图服务。 
+
+   * API调用者送入标准经纬度后，搜狗地图后台会负责处理坐标转换，叠加到地图上。
+
+   * 叠加后的坐标从视觉效果看基本没有偏移。
+
+   */
+
+  function initialize() {
+
+    //标准经纬度
+
+    //融科资讯中心c座南楼的位置 39.981320,116.320247
+
+    var myLatlng = new sogou.maps.LatLng(30.20860481,120.3119278);
+
+    var myOptions = {
+
+      zoom: 15,
+
+      center: myLatlng,
+
+      mapTypeId: sogou.maps.MapTypeId.ROADMAP
+
+    }
+
+    var map = new sogou.maps.Map(document.getElementById("map_canvas"), myOptions);
+
+     
+
+    var marker = new sogou.maps.Marker({
+
+        position: myLatlng, 
+
+        map: map,
+
+        title:"Hello World!"
+
+    });  
+
+  }
+
+</script>
+
+</head>
+
+<body onload="initialize()">
+
+  <div id="map_canvas"></div>
+
+</body>
+
+</html>

@@ -1,0 +1,133 @@
+unit UserSessionUnit;
+
+{
+  This is a DataModule where you can add components or declare fields that are specific to 
+  ONE user. Instead of creating global variables, it is better to use this datamodule. You can then
+  access the it using UserSession.
+}
+interface
+
+uses
+  IWUserSessionBase, SysUtils, Classes, Data.DB, DBAccess, Uni, UniProvider,
+  MySQLUniProvider, MemDS;
+
+
+type
+  TIWUserSession = class(TIWUserSessionBase)
+    con1: TUniConnection;
+    unqry1: TUniQuery;
+    mysqlnprvdr1: TMySQLUniProvider;
+    ds1: TUniDataSource;
+    qryPosition: TUniQuery;
+    procedure IWUserSessionBaseCreate(Sender: TObject);
+
+  private
+    { Private declarations }
+
+  public
+    { Public declarations }
+    uname,ulevel,uarea:string;
+     function reguser(user:string;upass:string):Integer;stdcall;
+     function login(user:string;psw:string;Stime:string): Integer;stdcall;
+     function loguser(user:string):Integer;stdcall;
+  end;
+
+implementation
+
+{$R *.dfm}
+
+uses ServerController;
+
+
+//注册新用户
+function TIWUserSession.reguser(user:string;upass:string):Integer;stdcall;
+    begin
+      with TUniQuery.Create(nil ) do
+      try
+      Connection:=con1;
+      Close;
+      sql.Clear;
+      sql.Add('select * from xs_user where uname='''+user+'''');
+      Open;
+        if RecordCount>0 then
+        begin
+        Result:=0;    //已经有这个用户
+        Exit;
+        end
+        else
+        begin
+          Close;
+          sql.Clear;
+          SQL.Add('insert into xs_user (uname,upass,ulevel,udate) values ( ');
+          sql.Add(''''+user+''',');
+          sql.Add(''''+upass+''',');
+          sql.Add('''2'',');
+          SQL.Add(''''+FormatDateTime('yyyy-MM-dd hh:mm:ss ',now())+''')');
+          //WebApplication.ShowMessage(sql.Text);
+          ExecSQL;
+          Result:=1;   //注册成功
+        end;
+        finally
+        free;
+      end;
+
+    end;
+
+//用户登录
+function TIWUserSession.login(user:string;psw:string;Stime:string): Integer;
+begin
+with  TUniQuery.Create(nil) do
+  try
+  Connection:=con1;
+  Close;
+  sql.Clear;
+  SQL.Add('select * from xs_user where uname = ');
+  sql.Add(''''+user+''' and upass = ');
+  sql.Add(''''+psw+'''');
+  //WebApplication.ShowMessage(sql.Text);
+  Open;
+    if RecordCount>0  then
+    begin
+    UserSession.uname:=user;                      //用户名
+    UserSession.ulevel:=FieldByName('ulevel').asstring;  //权限等级
+    UserSession.uarea:=FieldByName('uarea').asstring;  //地区
+    Result:=1;
+
+
+    end
+    else
+    begin
+      Result:=0;
+      exit;
+    end;
+  finally
+
+  end;
+
+end;
+
+function TIWUserSession.loguser(user:string): Integer;
+begin
+with  TUniQuery.Create(nil) do
+  try
+  Connection:=con1;
+  Close;
+  SQL.Clear;
+  SQL.Add('insert into xs_loginlog (uname,ip,ontime) values (');
+  SQL.Add(' '''+user+''',');
+  SQL.Add(' '''+webapplication.IP+''',');
+  SQL.Add(' '''+FormatDateTime('yyyy-MM-dd HH:nn:ss',now())+''')');
+  ExecSQL;
+  Close;
+  finally
+  Free;
+  end;
+
+end;
+procedure TIWUserSession.IWUserSessionBaseCreate(Sender: TObject);
+begin
+if con1.Connected=False  then con1.Connect;
+
+end;
+
+end.
