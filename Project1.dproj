@@ -91,11 +91,12 @@
         <DCC_DebugInformation>0</DCC_DebugInformation>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_2_Win32)'!=''">
+        <VerInfo_Build>8</VerInfo_Build>
         <Icon_MainIcon>Project1_Icon1.ico</Icon_MainIcon>
         <VerInfo_Release>12</VerInfo_Release>
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
         <VerInfo_Locale>1033</VerInfo_Locale>
-        <VerInfo_Keys>CompanyName=孙;FileDescription=孙;FileVersion=1.0.12.0;InternalName=孙;LegalCopyright=孙;LegalTrademarks=孙;OriginalFilename=孙;ProductName=孙;ProductVersion=1.0.0.0;Comments=孙</VerInfo_Keys>
+        <VerInfo_Keys>CompanyName=孙;FileDescription=孙;FileVersion=1.0.12.8;InternalName=孙;LegalCopyright=孙;LegalTrademarks=孙;OriginalFilename=孙;ProductName=孙;ProductVersion=1.0.0.0;Comments=孙;LastCompiledTime=2019-03-02 22:01:46</VerInfo_Keys>
         <Manifest_File>None</Manifest_File>
     </PropertyGroup>
     <ItemGroup>
@@ -160,7 +161,7 @@
                     <VersionInfo Name="MajorVer">1</VersionInfo>
                     <VersionInfo Name="MinorVer">0</VersionInfo>
                     <VersionInfo Name="Release">0</VersionInfo>
-                    <VersionInfo Name="Build">14</VersionInfo>
+                    <VersionInfo Name="Build">8</VersionInfo>
                     <VersionInfo Name="Debug">False</VersionInfo>
                     <VersionInfo Name="PreRelease">False</VersionInfo>
                     <VersionInfo Name="Special">False</VersionInfo>
@@ -172,7 +173,7 @@
                 <VersionInfoKeys>
                     <VersionInfoKeys Name="CompanyName"/>
                     <VersionInfoKeys Name="FileDescription"/>
-                    <VersionInfoKeys Name="FileVersion">1.0.0.14</VersionInfoKeys>
+                    <VersionInfoKeys Name="FileVersion">1.0.0.8</VersionInfoKeys>
                     <VersionInfoKeys Name="InternalName"/>
                     <VersionInfoKeys Name="LegalCopyright"/>
                     <VersionInfoKeys Name="LegalTrademarks"/>
@@ -203,7 +204,7 @@
                     <VersionInfoKeys Name="installLocation"/>
                     <VersionInfoKeys Name="largeHeap"/>
                     <VersionInfoKeys Name="theme"/>
-                    <VersionInfoKeys Name="LastCompiledTime">2019-02-22 23:41:52</VersionInfoKeys>
+                    <VersionInfoKeys Name="LastCompiledTime">2019-03-02 22:01:46</VersionInfoKeys>
                 </VersionInfoKeys>
                 <Source>
                     <Source Name="MainSource">Project1.dpr</Source>
